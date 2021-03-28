@@ -1,11 +1,13 @@
 package com.example.niddetails;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -43,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         //validate id no
         if(idNo.length()!=10 && idNo.length()!=12){
-            System.out.println("invalid id number");
+            Toast.makeText(getApplicationContext(),"Invalid ID Number",Toast.LENGTH_SHORT).show();
         }
         else if(idNo.length()==10 && !isNumeric(idNo.substring(0,9)) || idNo.length()==12 && !isNumeric(idNo.substring(0))){
-            System.out.println("invalid id number");
+            Toast.makeText(getApplicationContext(),"Invalid ID Number",Toast.LENGTH_SHORT).show();
         }
 
         else{
@@ -129,19 +131,32 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            System.out.println("gender is: "+gender);
+            System.out.println("birth month: "+month);
+            System.out.println("birthDay: "+day);
+            System.out.println("birth year: "+year);
+
+            openDialog(year,month,day,gender);
+
 
         }
 
-        System.out.println("gender is: "+gender);
-        System.out.println("birth month: "+month);
-        System.out.println("birthDay: "+day);
-        System.out.println("birth year: "+year);
 
 
 
 
 
 
+
+
+
+
+
+    }
+
+    public void openDialog(String year,String month,int day,String gender){
+        Dialog dialog=new Dialog(year,month,day,gender);
+        dialog.show(getSupportFragmentManager(),"dialog");
 
     }
 }
