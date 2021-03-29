@@ -40,7 +40,7 @@ public class Dialog extends AppCompatDialogFragment {
         LayoutInflater inflater =getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog,null);
         builder.setView(view)
-                .setTitle("Information")
+                .setTitle("Informations")
                 .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -48,17 +48,17 @@ public class Dialog extends AppCompatDialogFragment {
                     }
                 });
         birthYear=view.findViewById(R.id.birthYearDisplay);
-        birthYear.setText(year);
+        birthYear.setText("Year: "+year);
 
         birthMonth=view.findViewById(R.id.birthMonthDisplay);
-        birthMonth.setText(month);
+        birthMonth.setText("Month: "+month);
 
         birthDay=view.findViewById(R.id.birthDayDisplay);
         String dayDisplay=String.valueOf(day);
-        birthDay.setText(dayDisplay);
+        birthDay.setText("Day: "+dayDisplay);
 
         Gender=view.findViewById(R.id.genderDisplay);
-        Gender.setText(gender);
+        Gender.setText("Gender: "+gender);
         return builder.create();
 
     }

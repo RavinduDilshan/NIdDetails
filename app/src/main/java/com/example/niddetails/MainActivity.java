@@ -42,9 +42,12 @@ public class MainActivity extends AppCompatActivity {
         idNo=inputField.getText().toString();
 
 
+        if(idNo.length()==0){
+            Toast.makeText(getApplicationContext(),"Please Enter ID Number",Toast.LENGTH_SHORT).show();
+        }
 
         //validate id no
-        if(idNo.length()!=10 && idNo.length()!=12){
+        else if(idNo.length()!=10 && idNo.length()!=12){
             Toast.makeText(getApplicationContext(),"Invalid ID Number",Toast.LENGTH_SHORT).show();
         }
         else if(idNo.length()==10 && !isNumeric(idNo.substring(0,9)) || idNo.length()==12 && !isNumeric(idNo.substring(0))){
